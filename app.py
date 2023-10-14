@@ -3,8 +3,8 @@ import pickle
 import numpy as np
 
 # import the model
-pipe = pickle.load(open('pipe.pkl', 'rb'))
-df = pickle.load(open('df.pkl', 'rb'))
+# pipe = pickle.load(open('pipe.pkl', 'rb'))
+# df = pickle.load(open('df.pkl', 'rb'))
 
 # Set the page title and favicon
 st.set_page_config(page_title="Laptop Price Predictor", page_icon=":computer:")
@@ -33,24 +33,24 @@ gpu = st.selectbox('GPU', df['Gpu brand'].unique())
 os = st.selectbox('OS', df['os'].unique())
 
 # Prediction button and results
-if st.button('Predict Price'):
-    if touchscreen == 'Yes':
-        touchscreen = 1
-    else:
-        touchscreen = 0
+# if st.button('Predict Price'):
+#     if touchscreen == 'Yes':
+#         touchscreen = 1
+#     else:
+#         touchscreen = 0
 
-    if ips == 'Yes':
-        ips = 1
-    else:
-        ips = 0
+#     if ips == 'Yes':
+#         ips = 1
+#     else:
+#         ips = 0
 
-    X_res = int(resolution.split('x')[0])
-    Y_res = int(resolution.split('x')[1])
-    ppi = ((X_res ** 2) + (Y_res ** 2)) ** 0.5 / screen_size
-    query = np.array([company, type, ram, weight, touchscreen, ips, ppi, cpu, hdd, ssd, gpu, os])
+#     X_res = int(resolution.split('x')[0])
+#     Y_res = int(resolution.split('x')[1])
+#     ppi = ((X_res ** 2) + (Y_res ** 2)) ** 0.5 / screen_size
+#     query = np.array([company, type, ram, weight, touchscreen, ips, ppi, cpu, hdd, ssd, gpu, os])
 
-    query = query.reshape(1, 12)
-    predicted_price = int(np.exp(pipe.predict(query)[0]))
+#     query = query.reshape(1, 12)
+#     predicted_price = int(np.exp(pipe.predict(query)[0]))
 
     # Display the predicted price
     st.write("## Predicted Price")
