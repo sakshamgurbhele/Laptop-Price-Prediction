@@ -52,6 +52,6 @@ os = st.selectbox('OS', df['os'].unique())
 #     query = query.reshape(1, 12)
 #     predicted_price = int(np.exp(pipe.predict(query)[0]))
 
-    # Display the predicted price
-    st.write("## Predicted Price")
-    st.success(f"The predicted price of this configuration is **${predicted_price:,}**")
+    # # Display the predicted price
+    # st.write("## Predicted Price")
+    # st.success(f"The predicted price of this configuration is **${predicted_price:,}**")
